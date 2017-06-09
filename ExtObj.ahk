@@ -23,8 +23,9 @@ Change Log:
     v1.1 @ 5-29-17:
            - Added Sort method to ease sorting Arrays/Objects
 */
+#include %A_ScriptDir%\strObj.ahk
 
-Class _Object {
+Class _Object extends _str {
 
     Count[] {
         /* 
