@@ -149,7 +149,7 @@ class _str {
         */
         
         if (stop == "") 
-            stop := start, start := 0
+            stop := start, start := 1
         if (IsObject(this)) {
             for e,v in range(start, stop, step) {
                 r .= this[v]
