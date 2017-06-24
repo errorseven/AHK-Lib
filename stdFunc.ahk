@@ -10,14 +10,14 @@
 */
 
 
-Bin(x) {
+Bin(x, 0b:=0) {
     /*
         Convert an integer number to a binary string. 
         
         Return: binary str
         
         x -> int 
-        
+        0b -> bool
         example: bin(5) -> 0b101
                  bin(-2398892) -> -0b1001001001101010101100
     */
@@ -30,25 +30,26 @@ Bin(x) {
         x := x // 2
     }
     
-    return (neg?"-":_) "0b" ltrim(z, "0")
+    return (neg?"-":_) (0b?"0b":_) ltrim(z, "0")
 
 
 }
 
-Hex(x) {
+Hex(x, 0x:=0) {
     /*
         Convert an integer number to a hexcidecimal string. 
         
         Return: hexcidecimal str
         
         x -> int 
+        0x -> bool
         
         example: hex(22) -> 0x16
     */ 
     if (x < 0)
         neg := True, x := abs(x)
         
-    return (neg?"-":_) format("0x{:x}", x)
+    return (neg?"-":_) format("{}{:x}" (0x?"0x":_), x)
     
 }
 
@@ -102,13 +103,14 @@ Min(arr, index:=0) {
     return (index ? key : min)
 }
 
-Oct(x) {
+Oct(x, 0o:=0) {
     /*
         Convert an integer number to a octal string. 
         
         Return: octal str
         
-        x -> int 
+        x -> int
+        0o -> bool
         
         example: oct(23) -> 0o27
     */ 
@@ -121,7 +123,7 @@ Oct(x) {
         num += 10 ** power * (Mod(x, 8))
         x //= 8, power++
     }
-    return (neg?"-":_) "0o" num
+    return (neg?"-":_) (0o?"0o":_) num
 }
 
 Random(x:=0, y:=9) {

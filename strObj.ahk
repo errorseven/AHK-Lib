@@ -1,4 +1,4 @@
-#include %A_ScriptDir%\StdFunc.ahk
+#include <StdFunc>
 
 class CustomObject extends _str
 {

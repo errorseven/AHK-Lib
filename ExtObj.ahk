@@ -24,7 +24,7 @@ Change Log:
            - Added Sort method to ease sorting Arrays/Objects
 */
 
-#include %A_ScriptDir%\strObj.ahk
+#include <strObj>
 
 Class _Object extends _str {
 
