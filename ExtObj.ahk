@@ -173,6 +173,7 @@ Class _Object extends _str {
         Sort, r, % options "D" delim
         return StrSplit(trim(r, delim), delim)
     }
+    
 }
 
 Class _Array Extends _Object {
