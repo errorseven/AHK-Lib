@@ -170,25 +170,6 @@ Range(start:="", stop:="", step:=1) {
     while((step < 0 ? start >= stop : start <= stop))
         r.push(start), start += step
     
-/*    
-    if (step < 0) {
-        loop {
-            r.push(start) 
-            start += step
-            if (start <= stop) 
-                break
-        }
-    }
-    else {
-        loop {
-            r.push(start) 
-            start += step
-            if (start >= stop) 
-                break         
-        }
-    }
-    
-    */
     return r
 }
 
