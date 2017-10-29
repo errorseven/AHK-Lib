@@ -10,14 +10,14 @@
 */
 
 
-Bin(x, 0b:=0) {
+Bin(x) {
     /*
         Convert an integer number to a binary string. 
         
         Return: binary str
         
         x -> int 
-        0b -> bool
+        
         example: bin(5) -> 0b101
                  bin(-2398892) -> -0b1001001001101010101100
     */
@@ -30,26 +30,25 @@ Bin(x, 0b:=0) {
         x := x // 2
     }
     
-    return (neg?"-":_) (0b?"0b":_) ltrim(z, "0")
+    return (neg?"-":_) "0b" ltrim(z, "0")
 
 
 }
 
-Hex(x, 0x:=0) {
+Hex(x) {
     /*
         Convert an integer number to a hexcidecimal string. 
         
         Return: hexcidecimal str
         
         x -> int 
-        0x -> bool
         
         example: hex(22) -> 0x16
     */ 
     if (x < 0)
         neg := True, x := abs(x)
         
-    return (neg?"-":_) format("{}{:x}" (0x?"0x":_), x)
+    return (neg?"-":_) format("0x{:x}", x)
     
 }
 
@@ -103,14 +102,13 @@ Min(arr, index:=0) {
     return (index ? key : min)
 }
 
-Oct(x, 0o:=0) {
+Oct(x) {
     /*
         Convert an integer number to a octal string. 
         
         Return: octal str
         
-        x -> int
-        0o -> bool
+        x -> int 
         
         example: oct(23) -> 0o27
     */ 
@@ -123,7 +121,7 @@ Oct(x, 0o:=0) {
         num += 10 ** power * (Mod(x, 8))
         x //= 8, power++
     }
-    return (neg?"-":_) (0o?"0o":_) num
+    return (neg?"-":_) "0o" num
 }
 
 Random(x:=0, y:=9) {
@@ -168,7 +166,11 @@ Range(start:="", stop:="", step:=1) {
     
     if (step == 0) 
         return r
-        
+    
+    while((step < 0 ? start >= stop : start <= stop))
+        r.push(start), start += step
+    
+/*    
     if (step < 0) {
         loop {
             r.push(start) 
@@ -185,6 +187,8 @@ Range(start:="", stop:="", step:=1) {
                 break         
         }
     }
+    
+    */
     return r
 }
 

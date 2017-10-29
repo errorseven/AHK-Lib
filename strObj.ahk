@@ -47,10 +47,8 @@ class _str {
         */
         cap := false
         for e,v in this {
-            if (cap == false) {
-                r .= Format("{1:U}", v)
-                cap := true
-            }
+            if (cap == false) 
+                r .= Format("{1:U}", v), cap := true
             else
                 r .= v
          }      
